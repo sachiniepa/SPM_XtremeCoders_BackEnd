@@ -25,13 +25,48 @@ const EmployeeSchema = new Schema({
         required : true
     },
 
+    supPhone : {
+        type : String,
+        required : true
+    },
+
+    supEmail : {
+        type : String,
+        required : true
+    },
+
     startDate : {
+        type : Date,
+        required : true
+    },
+
+    endDate : {
         type : Date,
         required : true
     },
 
     noOfHours : {
         type : Number,
+        required : true
+    },
+
+    tasks : {
+        type : String,
+        required : true
+    },
+
+    outcome : {
+        type : String,
+        required : true
+    },
+
+    Ext_Sup_Name : {
+        type : String,
+        required : true
+    },
+
+    Date : {
+        type : Date,
         required : true
     }
 });
