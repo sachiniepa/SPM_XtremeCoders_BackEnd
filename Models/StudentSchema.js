@@ -35,6 +35,10 @@ const StudentScheme = new Schema({
     year: {
         type: Number,
         required: true
+    },
+    cgpa: {
+        type: Number,
+        required: true
     }
 });
 
