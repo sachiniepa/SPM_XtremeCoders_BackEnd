@@ -15,7 +15,8 @@ var studentController = function () {
                 mobileNo:studentInstance.mobileNo,
                 email: studentInstance.email,
                 semester: studentInstance.semester,
-                year:studentInstance.year
+                year:studentInstance.year,
+                cgpa: studentInstance.cgpa
             });
             student.save().then(function () {
                 resolve({status: 201, message: 'Student details registered'});
