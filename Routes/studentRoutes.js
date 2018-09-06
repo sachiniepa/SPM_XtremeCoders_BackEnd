@@ -5,7 +5,17 @@ var controller = require('../Controllers/StudentController');
 //HTTP method: POST  inputs: Student object
 router.post('/', function (req, res) {
     console.log("aaaa");
+    console.log(req.body);
     controller.addStudent(req.body).then(function (data) {
+        res.status(data.status).send(data.message);
+    }).catch(function (err) {
+        res.status(500).send(err.message);
+    });
+});
+
+router.post('/email', function (req, res) {
+    console.log("mailing");
+    controller.sendMail(req.body).then(function (data) {
         res.status(data.status).send(data.message);
     }).catch(function (err) {
         res.status(500).send(err.message);

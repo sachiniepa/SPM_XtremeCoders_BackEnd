@@ -1,10 +1,11 @@
 var mongoose = require('../DBconfig/db.config');
 var StudentSchema = mongoose.model('Student');
+var nodemailer = require('nodemailer');
 
 var studentController = function () {
     //add student details function, inputs: JSON object of student type
     this.addStudent = function (studentInstance) {
-        // console.log(studentInstance);
+        console.log(studentInstance);
         return new Promise(function(resolve, reject){
             var student = new  StudentSchema({
                 ITNo: studentInstance.ITNo,
@@ -79,6 +80,42 @@ var studentController = function () {
         })
 
     }
+    //sending email using nodemailer  module
+    this.sendMail = function (mailDetails) {
+        console.log(mailDetails);
+        return new Promise(function (resolve, reject) {
+            // create reusable transporter object
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',//use gmail service
+                secure: false,
+                auth: {
+                    user: mailDetails.fromEmail,//gmail account username
+                    pass: mailDetails.password //gmail account password
+                },
+                tls:{
+                    rejectUnauthorized: false
+                }
+            });
+            //setting up email data
+            var mailOptions = {
+                from: mailDetails.fromEmail,//sender address
+                to: mailDetails.toEmail,//list of receivers
+                subject: 'Sending Email using Node.js',//subject of the email
+                text: 'That was easy!'//body in plain text
+            };
+
+            //console.log(mailOptions);
+            //send mail using defined transport object
+            transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                    reject({status: 500, message: error});
+                } else {
+                    resolve({status: 200, message: info.response});
+                }
+            });
+        })
+    }
+
 }
 
 module.exports = new studentController();
