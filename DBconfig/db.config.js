@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 
 //requiring schemas
 var StudentSchema = require('../Models/StudentSchema');
+var EmployerSchema = require('../Models/EmployerSchema');
 
 //registering models
 mongoose.model('Student', StudentSchema);
+mongoose.model('Employer', EmployerSchema);
 
 //Connecting to db
 mongoose.connect('mongodb://localhost:27017/Internships', function (err) {
