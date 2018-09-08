@@ -7,6 +7,7 @@ var EmployerController = function(){
     this.addEmployer = function(data){
         return new Promise(function(resolve,reject){
             var employer = new EmployerSchema({
+                ITNo : data.ITNo,
                 name : data.name,
                 address : data.address,
                 supName : data.supName,
@@ -26,7 +27,7 @@ var EmployerController = function(){
         });
     };
 
-    //Update the relavant employer with the given id
+    //Update the relevant employer with the given id
     this.updateEmployer = function (id,data) {
         return new Promise(function (resolve,reject) {
             EmployerSchema.update({_id:id},data).then(function(){

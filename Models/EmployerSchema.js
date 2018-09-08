@@ -7,6 +7,11 @@ autoIncrement.initialize(connection);
 
 //Schema definition
 const EmployerSchema = new Schema({
+    ITNo : {
+        type : String,
+        required : true
+    },
+
     name : {
         type : String,
         required : true
