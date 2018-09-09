@@ -1,13 +1,20 @@
+//importing mongoose and auto-increment modules
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 var connection = mongoose.createConnection("mongodb://localhost:27017/Internships");
 autoIncrement.initialize(connection);
 
-const EmployeeSchema = new Schema({
+//Schema definition
+const EmployerSchema = new Schema({
+    ITNo : {
+        type : String,
+        required : true
+    },
+
     name : {
-        type: String,
-        required: true
+        type : String,
+        required : true
     },
 
     address : {
@@ -25,22 +32,7 @@ const EmployeeSchema = new Schema({
         required : true
     },
 
-    supPhone : {
-        type : String,
-        required : true
-    },
-
-    supEmail : {
-        type : String,
-        required : true
-    },
-
     startDate : {
-        type : Date,
-        required : true
-    },
-
-    endDate : {
         type : Date,
         required : true
     },
@@ -50,27 +42,22 @@ const EmployeeSchema = new Schema({
         required : true
     },
 
-    tasks : {
+    expectedTasks : {
         type : String,
         required : true
     },
 
-    outcome : {
+    tasksToBeLearned : {
         type : String,
         required : true
     },
 
-    Ext_Sup_Name : {
+    externalSup : {
         type : String,
-        required : true
-    },
-
-    Date : {
-        type : Date,
         required : true
     }
 });
 
-EmployeeSchema.plugin(autoIncrement.plugin,{model:'Employee',field:'employeeNo'});
+EmployerSchema.plugin(autoIncrement.plugin,{model:'Employer',field:'employerNo'});
 
-module.exports = EmployeeSchema;
+module.exports = EmployerSchema;
