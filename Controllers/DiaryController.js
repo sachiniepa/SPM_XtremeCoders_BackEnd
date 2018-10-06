@@ -18,8 +18,7 @@ var DiaryController = function () {
                 To: diaryInstance.To,
                 Training_party: diaryInstance.Training_party,
                 Training_desc: diaryInstance.Training_desc,
-                Period_from: diaryInstance.Period_from,
-                Period_to: diaryInstance.Period_to
+                Period_from: diaryInstance.Period_from
             });
             diary.save().then(function () {
                 resolve({status: 201, message: 'Record added'});
