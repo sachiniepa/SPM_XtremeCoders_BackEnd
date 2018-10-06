@@ -1,4 +1,3 @@
-//import mongoose module
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -41,22 +40,34 @@ const DiarySchema = new Schema({
         type: String,
         required: true
     },
-    Training_party: {
-        type: String,
-        required: true
-    },
-    Training_desc: {
-        type: String,
-        required: true
-    },
-    Period_from: {
-        type: String,
-        required: true
-    },
-    Period_to: {
-        type: String,
-        required: true
-    }
+    // Training_party: {
+    //     type: String
+    // },
+    // Training_desc: {
+    //     type: String
+    // },
+    // Period_from: {
+    //     type: String
+    // },
+    // Period_to: {
+    //     type: String
+    // },
+    body:[
+        {
+            Training_party: {
+                type: String
+            },
+            Training_desc: {
+                type: String
+            },
+            Period_from: {
+                type: String
+            },
+            Period_to: {
+                type: String
+            }
+        }
+    ]
    
 });
 
