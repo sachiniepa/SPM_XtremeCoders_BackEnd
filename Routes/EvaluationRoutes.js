@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../Controllers/EmployerController');
+var controller = require('../Controllers/EvaluationController');
 
 //HTTP method : POST
-//Inputs : Employer object
+//Inputs : Evaluation object
 router.post('/',function(req,res){
     console.log('inside routes');
-    controller.addEmployer(req.body).then(function(data){
+    controller.addEvaluation(req.body).then(function(data){
         res.status(data.status).send(data.message);
         console.log('success');
     }).catch(function(err){
@@ -15,9 +15,9 @@ router.post('/',function(req,res){
 });
 
 //HTTP method : PUT
-//Inputs : id of the employer(req.params.id), new details(req.body)
+//Inputs : id of the evaluation(req.params.id), new details(req.body)
 router.put('/:id',function(req,res){
-    controller.updateEmployer(req.params.id,req.body).then(function(data){
+    controller.updateEvaluation(req.params.id,req.body).then(function(data){
         res.status(data.status).send(data.message);
     }).catch(function(err){
         res.status(err.status).send(err.message);
@@ -25,9 +25,9 @@ router.put('/:id',function(req,res){
 });
 
 //HTTP method : DELETE
-//Inputs : id of the employer(req.params.id)
+//Inputs : id of the evaluation(req.params.id)
 router.delete('/:id',function(req,res){
-    controller.deleteEmployer(req.params.id).then(function(data){
+    controller.deleteEvaluation(req.params.id).then(function(data){
         res.status(data.status).send(data.message);
     }).catch(function(err){
         res.status(err.status).send(err.message);
