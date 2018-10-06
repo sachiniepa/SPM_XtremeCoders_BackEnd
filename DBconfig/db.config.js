@@ -3,15 +3,23 @@ const mongoose = require('mongoose');
 //requiring schemas
 var StudentSchema = require('../Models/StudentSchema');
 var EmployerSchema = require('../Models/EmployerSchema');
+<<<<<<< HEAD
 var EvaluationSchema = require('../Models/EvaluationSchema');
+=======
+var Diaryschema = require('../Models/DiarySchema');
+>>>>>>> 431e4c0252912c8df42ac1115a37574acace242c
 
 //registering models
 mongoose.model('Student', StudentSchema);
 mongoose.model('Employer', EmployerSchema);
+<<<<<<< HEAD
 mongoose.model('Evaluation', EvaluationSchema);
+=======
+mongoose.model('Diary',Diaryschema);
+>>>>>>> 431e4c0252912c8df42ac1115a37574acace242c
 
 //Connecting to db
-mongoose.connect('mongodb://localhost:27017/Internships', function (err) {
+mongoose.connect('mongodb://admin:root123@ds249992.mlab.com:49992/internship', function (err) {
     if(err){
         console.log(err);
         process.exit(-1);

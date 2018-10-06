@@ -52,27 +52,27 @@ var EmployerController = function(){
     };
 
     //get all the employers from the database.
-this.getAll = function() {
-    return new Promise(function (resolve, reject) {
-        EmployerSchema.find().exec().then(function (data) {
-            resolve({status: 200, message: data});
-        }).catch(function (err) {
-            reject({status: 500, message: 'Error - ' + err});
-        });
-    });
-};
-
-//Returning the json object of the employer with the given name
-this.getEmployerByName = function(name){
-        return new Promise(function(resolve,reject){
-            console.log(name);
-            EmployerSchema.find({name:name}).exec().then(function(data){
-                resolve({status:200, message:data});
-            }).catch(function(err){
-                reject({status:500, message:'Error - ' + err});
+    this.getAll = function() {
+        return new Promise(function (resolve, reject) {
+            EmployerSchema.find().exec().then(function (data) {
+                resolve({status: 200, message: data});
+            }).catch(function (err) {
+                reject({status: 500, message: 'Error - ' + err});
             });
         });
-}
+    };
+
+    //Returning the json object of the employer with the given name
+    this.getEmployerByName = function(name){
+            return new Promise(function(resolve,reject){
+                console.log(name);
+                EmployerSchema.find({name:name}).exec().then(function(data){
+                    resolve({status:200, message:data});
+                }).catch(function(err){
+                    reject({status:500, message:'Error - ' + err});
+                });
+            });
+    }
 
 };
 

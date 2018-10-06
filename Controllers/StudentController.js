@@ -85,24 +85,38 @@ var studentController = function () {
     this.sendMail = function (mailDetails) {
         console.log(mailDetails);
         return new Promise(function (resolve, reject) {
+            const output =  `
+            <p> Thanks for accepting our student ${mailDetails.name} (${mailDetails.ITNo}) for an internship in your company. Please fill the below form to confirm the students internship </p>
+            <br/> <br/>
+            <form>
+                 Name:<br>
+                <input type="text" name="name">
+                <br>
+                Address:<br>
+                <input type="text" name="address">
+                <br><br>
+                <input type="submit" value="Confirm Internship">
+            </form>
+            `;
             // create reusable transporter object
             var transporter = nodemailer.createTransport({
-                service: 'gmail',//use gmail service
-                secure: false,
+                host: "smtp.gmail.com",//use gmail service
+                port: 465,
+                secure: true,
                 auth: {
-                    user: mailDetails.fromEmail,//gmail account username
-                    pass: mailDetails.password //gmail account password
+                    user: "minolispencer@gmail.com",//gmail account username
+                    pass: "19980709" //gmail account password
                 },
-                tls:{
+                tls: {
                     rejectUnauthorized: false
                 }
             });
             //setting up email data
             var mailOptions = {
-                from: mailDetails.fromEmail,//sender address
+                from: '"SLIIT Internship Program" <mailDetails.fromEmail>',//sender address
                 to: mailDetails.toEmail,//list of receivers
-                subject: 'Sending Email using Node.js',//subject of the email
-                text: 'That was easy!'//body in plain text
+                subject: 'Confirmation of Internship',//subject of the email
+                html: output//body in plain text
             };
 
             //console.log(mailOptions);
