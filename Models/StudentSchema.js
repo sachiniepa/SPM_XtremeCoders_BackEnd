@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const StudentScheme = new Schema({
     ITNo: {
         type: String,
-        required: true
+        required : [true,'Please enter a IT number'],
+        match: [/(I|E|B)(T|N|M)\d{6}/i, 'Please enter a valid IT No']// Checking whether a valid IT number is entered
     },
     name: {
         type: String,
@@ -18,15 +19,19 @@ const StudentScheme = new Schema({
     },
     homeNo: {
         type: String,
-        required: true
+        required: [true,'Please enter a phone No'],
+        match: [/^\d{10}$/, 'Please enter a valid phone No']// Checking whether a valid phone number is entered
+
     },
     mobileNo: {
         type: String,
-        required: true
+        required: [true,'Please enter a phone No'],
+        match: [/^\d{10}$/, 'Please enter a valid phone No']
     },
     email: {
         type: String,
-        required: true
+        required : [true,'Please enter an email'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']// Checking whether a  valid enail address is entered
     },
     semester: {
         type: Number,
