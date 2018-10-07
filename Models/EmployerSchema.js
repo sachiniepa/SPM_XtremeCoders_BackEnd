@@ -9,52 +9,52 @@ autoIncrement.initialize(connection);
 const EmployerSchema = new Schema({
     ITNo : {
         type : String,
-        required : true
+        required : [true,'Please enter a Student Registration Number']
     },
 
     name : {
         type : String,
-        required : true
+        required : [true,'Please enter a name']
     },
 
     address : {
         type : String,
-        required : true
+        required : [true,'Please enter aa address']
     },
 
     supName : {
         type : String,
-        required : true
+        required : [true,'Please enter supervisor name']
     },
 
     supTitle : {
         type : String,
-        required : true
+        required : [true,'Please enter supervisor title']
     },
 
     startDate : {
         type : Date,
-        required : true
+        required : [true,'Please enter start date']
     },
 
     noOfHours : {
         type : Number,
-        required : true
+        required : [true,'Please enter number of hours']
     },
 
     expectedTasks : {
         type : String,
-        required : true
+        required : [true,'Please enter expected tasks']
     },
 
     tasksToBeLearned : {
         type : String,
-        required : true
+        required : [true,'Please enter what the student learnt']
     },
 
     externalSup : {
         type : String,
-        required : true
+        required : [true,'Please enter external Supplier name']
     }
 });
 
