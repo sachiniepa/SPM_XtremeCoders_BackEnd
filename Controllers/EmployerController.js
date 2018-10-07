@@ -5,9 +5,10 @@ var nodemailer = require('nodemailer');
 var EmployerController = function(){
     //Add employer details function. The input would be a employer type json
     this.addEmployer = function(data){
+        console.log('inside controller');
         return new Promise(function(resolve,reject){
             var employer = new EmployerSchema({
-                ITNo : data.ITNo,
+                ITNo : "IT1609878",
                 name : data.name,
                 address : data.address,
                 supName : data.supName,
@@ -19,6 +20,7 @@ var EmployerController = function(){
                 externalSup : data.externalSup
             });
 
+            console.log(employer);
             employer.save().then(function(){
                 resolve({status:201, message:"Employer Details Added!"});
             }).catch(function (reason) {
