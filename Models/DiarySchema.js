@@ -18,11 +18,13 @@ const DiarySchema = new Schema({
     },
     contactNo: {
         type: String,
-        required: true
+        required: [true,'Please enter a phone No'],
+        match: [/^\d{10}$/, 'Please enter a valid phone No']
     },    
     email: {
         type: String,
-        required: true
+        required : [true,'Please enter an email'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']
     },
     internship_title: {
         type: String,
