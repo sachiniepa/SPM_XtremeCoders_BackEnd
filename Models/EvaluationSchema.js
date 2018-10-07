@@ -105,7 +105,7 @@ const EvaluationSchema = new Schema({
 
     Date : {
         type : Date,
-        required :  true,
+        required :  false,
         default : Date.now()
     }
 });
