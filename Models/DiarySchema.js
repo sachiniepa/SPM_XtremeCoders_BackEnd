@@ -40,34 +40,15 @@ const DiarySchema = new Schema({
         type: String,
         required: true
     },
-    // Training_party: {
-    //     type: String
-    // },
-    // Training_desc: {
-    //     type: String
-    // },
-    // Period_from: {
-    //     type: String
-    // },
-    // Period_to: {
-    //     type: String
-    // },
-    body:[
-        {
-            Training_party: {
-                type: String
-            },
-            Training_desc: {
-                type: String
-            },
-            Period_from: {
-                type: String
-            },
-            Period_to: {
-                type: String
-            }
-        }
-    ]
+    Training_party: {
+        type: String
+    },
+    Training_desc: {
+        type: String
+    },
+    Period_from: {
+        type: String
+    }
    
 });
 
